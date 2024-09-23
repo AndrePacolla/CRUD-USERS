@@ -4,12 +4,20 @@ import styled from "styled-components";
 const FormContainer = styled.form`
 display: flex;
 align-items: flex-end;
+width: 100%;
+margin-top: 40px;
 gap: 10px;
 flex-wrap: wrap;
 background-color: #fff;
 padding: 20px;
-box-shadow: 0px 0px 5px #ccc;
-border-radius: 5px;
+box-shadow: 0px 0px 10px #ccc;
+border-radius: 7px;
+
+@media (max-width: 500px){
+        width: 300px;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
 `;
 
 const InputArea = styled.div`
@@ -18,10 +26,10 @@ flex-direction: column;
 `;
 
 const Input = styled.input`
-width: 120px;
+width: 130px;
 padding: 0 10px;
-border: 1px solid #bbb;
-border-radius: 5px;
+border: 1px solid #0d0d0d;
+border-radius: 10px;
 height: 40px;
 `;
 
@@ -29,13 +37,16 @@ const Button = styled.button`
 padding: 10px;
 cursor: pointer;
 border: none;
-background-color: #2c73d2;
+background-color: #2062a4;
 border-radius: 5px;
 color: white;
 height: 42px;
 `;
 
-const Label = styled.label``;
+const Label = styled.label`
+    margin-bottom: 10px;
+
+`;
 
 
 const Form = ({onEdit}) => {
@@ -46,22 +57,22 @@ const Form = ({onEdit}) => {
 
             <InputArea>
             <Label>Nome</Label>
-            <input name="nome"/>
+            <Input name="nome"/>
             </InputArea>
 
             <InputArea>
             <Label>E-mail</Label>
-            <input name="email" type="email"/>
+            <Input name="email" type="email"/>
             </InputArea>
 
             <InputArea>
             <Label>Telefone</Label>
-            <input name="fone"/>
+            <Input name="fone"/>
             </InputArea>
 
             <InputArea>
             <Label>Data de Nascimento</Label>
-            <input name="data_nascimneto" type="date"/>
+            <Input name="data_nascimneto" type="date"/>
             </InputArea>
             
             <Button type="submit">SALVAR</Button>
