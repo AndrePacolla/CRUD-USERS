@@ -73,7 +73,7 @@ const Grid = ({users}) =>{
                         <FaEdit/>
                     </Td>
                     <Td alineCenter width="5%">
-                        
+                        <FaTrash/>
                     </Td>
 
                 </Tr>
