@@ -50,7 +50,11 @@ export const Td = styled.td`
 
 
 
-const Grid = ({users}) => {
+const Grid = ({ users, setUsers, setOnEdit }) => {
+
+    const handleEdit = (item) =>{
+        setOnEdit(item);
+    };
 
 
     const handleDelete = async (id) => {
@@ -86,7 +90,7 @@ const Grid = ({users}) => {
                     <Td width = "30%">{item.email}</Td>
                     <Td width = "20%" onlyWeb>{item.fone}</Td>
                     <Td alineCenter width="5%">
-                        <FaEdit/>
+                        <FaEdit onClick ={() => handleEdit(item)}/>
                     </Td>
                     <Td alineCenter width="5%">
                         <FaTrash onClick={() => handleDelete(item.id)}/>
