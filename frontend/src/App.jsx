@@ -27,7 +27,7 @@ function App() {
  `;
 
   const [users, setUsers] =useState([]);
-  const [oneEdit, setOnEdit] =useState(null);
+  const [onEdit, setOnEdit] =useState(null);
 
   const getUsers = async ()=>{
     try{
@@ -53,8 +53,6 @@ function App() {
     <Grid users={users} setUsers ={setUsers} setOnEdit={setOnEdit}/>   
     </Container>
 
-
-    <Global/>
     <ToastContainer autoClose={3000} position="bottom-right"/>
     </>
   )
