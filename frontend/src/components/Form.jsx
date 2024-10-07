@@ -51,7 +51,7 @@ const Label = styled.label`
 `;
 
 
-const Form = ({onEdit}) => {
+const Form = ({ getUsers, onEdit, setOnEdit }) => {
     const ref = useRef();
 
     useEffect(() => {
@@ -89,13 +89,30 @@ const Form = ({onEdit}) => {
                 nome: user.nome.value,
                 email: user.email.value,
                 fone: user.fone.value,
-                data_nascimento: user.data_nascimento.value,
+                data_nascimento: user.data_nascimento.value
             })
             .then(({ data }) => toast.success(data))
             .catch(({ data }) => toast.error(data));
+        } else {
+            await axios
+            .post("http://localhost:8800",{
+                nome: user.nome.value,
+                email: user.email.value,
+                fone: user.fone.value,
+                data_nascimento: user.data_nascimento.value
+            })
+            .then(({data}) => toast.success(data))
+            .catch(({data}) => toast.error(data))
         }
-    };
 
+            user.nome.value = "";
+            user.email.value = "";
+            user.fone.value = "";
+            user.data_nascimento.value = "";
+
+            setOnEdit(null);
+            getUsers(); 
+    };
       
 
     return(
